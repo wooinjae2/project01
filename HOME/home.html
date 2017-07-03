@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HOME</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <style>
+
+
+    .container {
+      border: 1px solid white;
+      width: 1400px;
+      height: 180px;
+      margin-left: 240px;
+      margin-top: 8px;
+    }
+
+    .header {
+    border: 1px solid #838FAC;
+    width: 100%;
+    height: 200px;
+    margin: 0px auto;
+    }
+
+    a {
+      font-weight: bold;
+      color: black;
+      text-decoration: none;
+    }
+
+      .footer {
+        border: 1px solid #838FAC;
+          width: 100%;
+          height: 100px;
+          margin: 0px auto;
+        border-radius: 1px;
+        margin-top: 75%;
+        text-align: center;
+      }
+
+      .fa fa-shopping-cart{
+        margin-left: 90%;
+        font-weight: bold;
+      }
+
+      #home{
+        margin-left: 70%;
+        margin-right: 5px;
+
+      }
+      #shop{
+        margin-right: 5px;
+      }
+      #about{
+        margin-right: 5px;
+      }
+      #contect{
+        margin-right: 5px;
+      }
+
+      #login {
+        margin-right: 10px;
+      }
+
+      #p1{
+        margin-left: 490px;
+        margin-top: 30px;
+        font-size: 250%;
+        font-weight: bold;
+      }
+
+      #footer {
+        border: 1px solid white;
+        width: 1400px;
+        height: 60px;
+        margin-left: 240px;
+        margin-top: 10px;
+        padding-top: 20px;
+
+      }
+
+      #empty {
+        border: 1px solid white;
+        width: 100%;
+        height: 50px;
+        margin-top: 10px;
+      }
+
+      #search1[type=text] {
+          text-align: center;
+          width: 250px;
+          height: 30px;
+          margin-left: 470px;
+          -webkit-transition: width 0.4s ease-in-out;
+          transition: width 0.4s ease-in-out;
+      }
+
+      /* When the input field gets focus, change its width to 100% */
+      #search1[type=text]:focus {
+          width: 28%;
+      }
+
+    #Main {
+      top:50px;
+    margin: auto;
+    width:860px;
+    height:490px;
+    border: 1px solid lightgray;
+    left: 50%
+    padding: 10px;
+    position: relative;
+    }
+
+    #notice{
+    position: absolute;
+    right: 10px;
+    top:120px;
+    right:20px;
+    width: 300px;
+    height: 273px;
+    display: inline-block;
+    }
+
+  #gobtn{
+    width: 100px;
+    height: 40px;
+    border: none;
+    color: white;
+    background: deeppink;
+    position: absolute;
+    bottom: 15px;
+    left: 100px;
+
+  }
+  .noti{
+    position: absolute;
+    width: 300px;
+
+    height: auto;
+
+  }
+  .mainImage{
+    position: absolute;
+    width: 860px;
+
+  }
+
+  #hotItem{
+    position: absolute;
+    width: 1200px;
+    height: 720px;
+    top:840px;
+    left: 360px;
+  }
+
+  #hot{
+    position: absolute;
+    top:-20px;
+    font-size: 40px;
+    color: gray;
+
+  }
+
+  .hotMore{
+    top:10px;
+    position: absolute;
+    right: 40px;
+    font-size: 15px;
+    color: black;
+  }
+    .hotMore:hover{
+      color:hotpink;
+    }
+
+
+  div.Hotgallery {
+      border: 1px solid #ccc;
+      margin: 4px;
+  }
+
+  div.Hotgallery:hover {
+      border: 1px solid black;
+  }
+
+  div.Hotgallery img {
+      width: 280px;
+      height: 287px;
+  }
+
+  div.desc {
+    padding: 15px;
+      text-align: center;
+  }
+
+
+.responsive {
+    position: relative;
+    float: right;
+    width: 300px;
+    top: 10px;
+    right: 15px;
+}
+
+.responsive1 {
+    position: relative;
+    top: 10px;
+    left: 20px;
+    float: left;
+    width: 550px;
+    border: 1px solid #ccc;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+#responsive1_desc{
+  font-size: 45px;
+}
+
+
+  </style>
+  </head>
+
+  <body>
+
+
+    <div class="header">
+      <div class="container">
+            <a id="home" href="주소">HOME</a>
+            <a id="shop" href="주소">SHOPPING</a><td>
+            <a id="about" href="주소">ABOUT</a>
+            <a id="contect" href="주소">CONTACT</a>
+            <a id="login" href="주소">sign in</a>
+            <a href="www.naver.com" class="fa fa-shopping-cart" aria-hidden="true"></a>cart<br>
+            <p id="p1">Codes for Pro, Proco</p>
+            <input id="search1" type="text" name="search" placeholder="Search">
+            <button type="button" class="btn btn-default">search</button>
+      </div>
+    </div>
+
+
+
+
+<div id=Main>
+ <img src="01.jpg" class=mainImage>
+  <div id="notice">
+    <img class=noti src="group-29.png">
+    <button id=gobtn>만나러가기</button>
+  </div>
+</div>
+
+
+
+  <div id="hotItem">
+    <a id=hot>인기 아이템</a> <a class="hotMore" href="www.naver.com"> VIEW MORE -></a><br>
+    <div class="responsive1">
+    <div class="gallery">
+      <a target="_blank" href="image01.jpg" >
+        <img src="image01.jpg" width="550" height="550">
+      </a>
+      <div id=responsive1_desc class="desc">Add a description of the image here</div>
+    </div>
+  </div>
+
+
+
+<div class="responsive">
+  <div class="Hotgallery">
+    <a target="_blank" href="image02.jpg">
+      <img src="image02.jpg">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div>
+
+
+  <div class="responsive">
+  <div class="Hotgallery">
+    <a target="_blank" href="image03.jpg">
+      <img src="image03.jpg">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="Hotgallery">
+    <a target="_blank" href="image04.jpg">
+      <img src="image05.jpg" >
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="Hotgallery">
+    <a target="_blank" href="image04.jpg">
+      <img src="image04.jpg" >
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div>
+</div>
+
+    <div class="footer">
+      <div id="footer">
+        <span id="company">(주)프로모션코드 서초지점</span>
+      <p>Copyright by PROMOTION CODE</p>
+    </div>
+  <div id="empty">
+  </div>
+  </div>
+
+
+
+</body>
+</html>

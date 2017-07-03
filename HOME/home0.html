@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HOME</title>
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+    }
+
+
+    #Main {
+    top: 200px;
+    margin: auto;
+    width:860px;
+    height:490px;
+    border: 1px solid lightgray;
+    left: 50%
+    padding: 10px;
+    position: relative;
+    }
+
+    #notice{
+    position: absolute;
+    right: 10px;
+    top:120px;
+    right:20px;
+    width: 250px;
+    height: 233px;
+    display: inline-block;
+    }
+
+  #gobtn{
+    width: 100px;
+    height: 40px;
+    border: none;
+    color: white;
+    background: powderblue;
+    position: absolute;
+    bottom: 5px;
+    left: 80px;
+
+  }
+  .noti{
+    position: absolute;
+    width: 250px;
+
+    height: auto;
+
+  }
+  .mainImage{
+    position: absolute;
+    width: 860px;
+
+  }
+
+  #hotItem{
+    position: absolute;
+    width: 1200px;
+    height: 710px;
+    top:840px;
+    left: 360px;
+  }
+
+  #hot{
+    position: absolute;
+    top:30px;
+    left: 30px;
+    font-size: 30px;
+    color: gray;
+    font-weight: lighter;
+  }
+  .hotMore{
+    position: absolute;
+    top:50px;
+    right: 40px;
+    font-size: 15px;
+    color: black;
+    font-weight: lighter;
+  }
+
+
+    #image01{
+      position: absolute;
+      left:40px;
+      top:80px;
+      width:550px;
+      height: 550px;
+      border: none;
+    }
+
+
+  #image02{
+    position: absolute;
+    left:630px;
+    top:80px;
+    width:250px;
+    height: 260px;
+    border-style: none;
+  }
+  #image03{
+    position: absolute;
+    right:40px;
+    top:80px;
+    width:250px;
+    height: 260px;
+    background-color: lavender;
+    border-style: none;
+
+  }
+  #image04{
+    position: absolute;
+    left:630px;
+    bottom:80px;
+    width:250px;
+    height: 260px;
+    background-color: lavender;
+    border: none;
+  }
+
+  #image05{
+    position: absolute;
+    right:40px;
+    bottom:80px;
+    width:250px;
+    height: 260px;
+
+
+  }
+
+
+  div.Hotgallery {
+      border: 1px solid #ccc;
+  }
+
+  div.Hotgallery:hover {
+      border: 1px solid #777;
+  }
+
+  div.Hotgallery img {
+      width: 100%;
+      height: auto;
+  }
+
+  div.Hotgallery {
+      padding: 15px;
+      text-align: center;
+  }
+  .responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px){
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+  </style>
+  </head>
+  <body>
+
+<div id=Main>
+ <img src="01.jpg" class=mainImage>
+  <div id="notice">
+    <img class=noti src="group-29.png">
+    <button id=gobtn>만나러가기</button>
+  </div>
+</div>
+
+
+
+  <div id="hotItem">
+    <a id=hot>인기 아이템</a> <a class="hotMore" href="www.naver.com"> VIEW MORE -></a><br>
+    <div class="responsive">
+    <div class="Hotgallery">
+      <a target="_blank" href="image01.jpg">
+        <img id="image01" src="image01.jpg">
+      </a>
+      <div class="desc">Add a description of the image here</div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+</body>
+
+</html>
