@@ -1,0 +1,578 @@
+--  Member
+CREATE TABLE `MEMB` (
+	`MNO`   INTEGER     NOT NULL COMMENT '회원 일련번호', -- 회원 일련번호
+	`EMAIL` VARCHAR(40) NOT NULL COMMENT '이메일', -- 이메일
+	`PWD`   VARCHAR(50) NOT NULL COMMENT '비밀번호', -- 비밀번호
+	`ALIAS` VARCHAR(50) NULL     COMMENT '닉네임' -- 닉네임
+)
+COMMENT ' Member';
+
+--  Member
+ALTER TABLE `MEMB`
+	ADD CONSTRAINT `PK_MEMB` --  Member 기본키
+		PRIMARY KEY (
+			`MNO` -- 회원 일련번호
+		);
+
+--  Member 유니크 인덱스
+CREATE UNIQUE INDEX `UIX_MEMB`
+	ON `MEMB` ( --  Member
+		`EMAIL` ASC -- 이메일
+	);
+
+--  Member 유니크 인덱스2
+CREATE UNIQUE INDEX `UIX_MEMB2`
+	ON `MEMB` ( --  Member
+		`ALIAS` ASC -- 닉네임
+	);
+
+ALTER TABLE `MEMB`
+	MODIFY COLUMN `MNO` INTEGER NOT NULL AUTO_INCREMENT COMMENT '회원 일련번호';
+
+-- 사업자 회원
+CREATE TABLE `B_MEMB` (
+	`CEONO`   INTEGER      NOT NULL COMMENT '사업자 일련번호', -- 사업자 일련번호
+	`NAME`    VARCHAR(50)  NULL     COMMENT '이름', -- 이름
+	`CEO_NA`  VARCHAR(50)  NULL     COMMENT '대표자명', -- 대표자명
+	`CEO_TEL` VARCHAR(30)  NULL     COMMENT '대표자 번호', -- 대표자 번호
+	`PART_NO` VARCHAR(30)  NULL     COMMENT '담당자번호', -- 담당자번호
+	`PART_NA` VARCHAR(50)  NULL     COMMENT '담당자이름', -- 담당자이름
+	`B_ADDR`  VARCHAR(255) NULL     COMMENT '기본주소', -- 기본주소
+	`D_ADDR`  VARCHAR(255) NULL     COMMENT '상세주소', -- 상세주소
+	`P_CODE`  VARCHAR(10)  NULL     COMMENT '우편번호', -- 우편번호
+	`BUSINO`  VARCHAR(15)  NOT NULL COMMENT '사업자등록번호', -- 사업자등록번호
+	`PROF`    VARCHAR(255) NULL     COMMENT '사진(사람)', -- 사진(사람)
+	`COMPIC`  VARCHAR(255) NULL     COMMENT '기업사진' -- 기업사진
+)
+COMMENT '사업자 회원';
+
+-- 사업자 회원
+ALTER TABLE `B_MEMB`
+	ADD CONSTRAINT `PK_B_MEMB` -- 사업자 회원 기본키
+		PRIMARY KEY (
+			`CEONO` -- 사업자 일련번호
+		);
+
+-- 사업자 회원 유니크 인덱스
+CREATE UNIQUE INDEX `UIX_B_MEMB`
+	ON `B_MEMB` ( -- 사업자 회원
+		`BUSINO` ASC -- 사업자등록번호
+	);
+
+-- Admin
+CREATE TABLE `ADMIN` (
+	`ADNO` INTEGER NOT NULL COMMENT '관리자 일련번호' -- 관리자 일련번호
+)
+COMMENT 'Admin';
+
+-- Admin
+ALTER TABLE `ADMIN`
+	ADD CONSTRAINT `PK_ADMIN` -- Admin 기본키
+		PRIMARY KEY (
+			`ADNO` -- 관리자 일련번호
+		);
+
+-- 온라인코드
+CREATE TABLE `ON_CODE` (
+	`ON_NO` INTEGER NOT NULL COMMENT '온라인코드 일련번호' -- 온라인코드 일련번호
+)
+COMMENT '온라인코드';
+
+-- 온라인코드
+ALTER TABLE `ON_CODE`
+	ADD CONSTRAINT `PK_ON_CODE` -- 온라인코드 기본키
+		PRIMARY KEY (
+			`ON_NO` -- 온라인코드 일련번호
+		);
+
+-- 중분류 카테고리
+CREATE TABLE `MIDCAT` (
+	`SMNO`   INTEGER     NOT NULL COMMENT '중분류 카테고리 일련번호', -- 중분류 카테고리 일련번호
+	`BIGNO`  INTEGER     NOT NULL COMMENT '대분류 카테고리 일련번호', -- 대분류 카테고리 일련번호
+	`MIDCAT` VARCHAR(50) NOT NULL COMMENT '중분류 카테고리명' -- 중분류 카테고리명
+)
+COMMENT '중분류 카테고리';
+
+-- 중분류 카테고리
+ALTER TABLE `MIDCAT`
+	ADD CONSTRAINT `PK_MIDCAT` -- 중분류 카테고리 기본키
+		PRIMARY KEY (
+			`SMNO` -- 중분류 카테고리 일련번호
+		);
+
+ALTER TABLE `MIDCAT`
+	MODIFY COLUMN `SMNO` INTEGER NOT NULL AUTO_INCREMENT COMMENT '중분류 카테고리 일련번호';
+
+-- 오프라인 코드
+CREATE TABLE `OF_CODE` (
+	`OF_NO` INTEGER      NOT NULL COMMENT '오프라인 코드 일련번호', -- 오프라인 코드 일련번호
+	`ADDR`  VARCHAR(255) NULL     COMMENT '주소', -- 주소
+	`MAP`   VARCHAR(255) NULL     COMMENT '지도' -- 지도
+)
+COMMENT '오프라인 코드';
+
+-- 오프라인 코드
+ALTER TABLE `OF_CODE`
+	ADD CONSTRAINT `PK_OF_CODE` -- 오프라인 코드 기본키
+		PRIMARY KEY (
+			`OF_NO` -- 오프라인 코드 일련번호
+		);
+
+-- 온라인 정보 제공
+CREATE TABLE `ON_INFO` (
+	`ONINFNO` INTEGER NOT NULL COMMENT '온라인 정보제공 일련번호', -- 온라인 정보제공 일련번호
+	`PONO`    INTEGER NOT NULL COMMENT '게시물 기본정보 일련번호' -- 게시물 기본정보 일련번호
+)
+COMMENT '온라인 정보 제공';
+
+-- 온라인 정보 제공
+ALTER TABLE `ON_INFO`
+	ADD CONSTRAINT `PK_ON_INFO` -- 온라인 정보 제공 기본키
+		PRIMARY KEY (
+			`ONINFNO` -- 온라인 정보제공 일련번호
+		);
+
+ALTER TABLE `ON_INFO`
+	MODIFY COLUMN `ONINFNO` INTEGER NOT NULL AUTO_INCREMENT COMMENT '온라인 정보제공 일련번호';
+
+-- 코드 등록(온라인)
+CREATE TABLE `N_CODE` (
+	`ONCODE` INTEGER NOT NULL COMMENT '코드온라인 일련번호', -- 코드온라인 일련번호
+	`POINFO` INTEGER NOT NULL COMMENT '게시물 기본정보 일련번호', -- 게시물 기본정보 일련번호
+	`NONO`   INTEGER NOT NULL COMMENT '일반회원 일련번호' -- 일반회원 일련번호
+)
+COMMENT '코드 등록(온라인)';
+
+-- 코드 등록(온라인)
+ALTER TABLE `N_CODE`
+	ADD CONSTRAINT `PK_N_CODE` -- 코드 등록(온라인) 기본키
+		PRIMARY KEY (
+			`ONCODE` -- 코드온라인 일련번호
+		);
+
+ALTER TABLE `N_CODE`
+	MODIFY COLUMN `ONCODE` INTEGER NOT NULL AUTO_INCREMENT COMMENT '코드온라인 일련번호';
+
+-- 코드등록(사업자)
+CREATE TABLE `B_CODE` (
+	`CONO`    INTEGER      NOT NULL COMMENT '코드 일련번호', -- 코드 일련번호
+	`CO_TYPE` CHAR(1)      NULL     COMMENT '코드유형', -- 코드유형
+	`CO_WAY`  CHAR(1)      NULL     COMMENT '코드생성방법', -- 코드생성방법
+	`OFF_PER` INTEGER      NULL     COMMENT '할인율', -- 할인율
+	`OFF_PRI` INTEGER      NULL     COMMENT '할인가격', -- 할인가격
+	`DUPL`    CHAR(1)      NULL     COMMENT '중복여부', -- 중복여부
+	`APPL`    CHAR(1)      NULL     COMMENT '적용대상', -- 적용대상
+	`FCFS`    INTEGER      NULL     COMMENT '선착순', -- 선착순
+	`CONDI`   VARCHAR(255) NULL     COMMENT '적용조건', -- 적용조건
+	`CEONO`   INTEGER      NOT NULL COMMENT '사업자 일련번호' -- 사업자 일련번호
+)
+COMMENT '코드등록(사업자)';
+
+-- 코드등록(사업자)
+ALTER TABLE `B_CODE`
+	ADD CONSTRAINT `PK_B_CODE` -- 코드등록(사업자) 기본키
+		PRIMARY KEY (
+			`CONO` -- 코드 일련번호
+		);
+
+-- 게시물 기본정보
+CREATE TABLE `POST` (
+	`POINFO`  INTEGER      NOT NULL COMMENT '게시물 기본정보 일련번호', -- 게시물 기본정보 일련번호
+	`PRODU`   VARCHAR(50)  NOT NULL COMMENT '상품명', -- 상품명
+	`DSCP`    TEXT         NULL     COMMENT '설명', -- 설명
+	`ADT`     DATE         NULL     COMMENT '시작일', -- 시작일
+	`EDT`     DATE         NULL     COMMENT '종료일', -- 종료일
+	`LOGO`    VARCHAR(255) NULL     COMMENT '로고', -- 로고
+	`LINK`    VARCHAR(255) NULL     COMMENT '링크 패스', -- 링크 패스
+	`PO_DATE` DATETIME     NULL     COMMENT '등록일', -- 등록일
+	`SMNO`    INTEGER      NOT NULL COMMENT '중분류 카테고리 일련번호', -- 중분류 카테고리 일련번호
+	`COMNO`   INTEGER      NOT NULL COMMENT '기업일련번호' -- 기업일련번호
+)
+COMMENT '게시물 기본정보';
+
+-- 게시물 기본정보
+ALTER TABLE `POST`
+	ADD CONSTRAINT `PK_POST` -- 게시물 기본정보 기본키
+		PRIMARY KEY (
+			`POINFO` -- 게시물 기본정보 일련번호
+		);
+
+ALTER TABLE `POST`
+	MODIFY COLUMN `POINFO` INTEGER NOT NULL AUTO_INCREMENT COMMENT '게시물 기본정보 일련번호';
+
+-- 찜
+CREATE TABLE `CART` (
+	`CARTNO` INTEGER NOT NULL COMMENT '찜 일련번호', -- 찜 일련번호
+	`MNO`    INTEGER NOT NULL COMMENT '회원 일련번호', -- 회원 일련번호
+	`COMNO`  INTEGER NOT NULL COMMENT '기업일련번호' -- 기업일련번호
+)
+COMMENT '찜';
+
+-- 찜
+ALTER TABLE `CART`
+	ADD CONSTRAINT `PK_CART` -- 찜 기본키
+		PRIMARY KEY (
+			`CARTNO` -- 찜 일련번호
+		);
+
+ALTER TABLE `CART`
+	MODIFY COLUMN `CARTNO` INTEGER NOT NULL AUTO_INCREMENT COMMENT '찜 일련번호';
+
+-- 사용한코드
+CREATE TABLE `USED` (
+	`USED`   INTEGER  NOT NULL COMMENT '사용한코드 일련번호', -- 사용한코드 일련번호
+	`USDATE` DATETIME NULL     COMMENT '사용날짜', -- 사용날짜
+	`MNO`    INTEGER  NOT NULL COMMENT '회원 일련번호', -- 회원 일련번호
+	`CONO`   INTEGER  NOT NULL COMMENT '코드 일련번호' -- 코드 일련번호
+)
+COMMENT '사용한코드';
+
+-- 사용한코드
+ALTER TABLE `USED`
+	ADD CONSTRAINT `PK_USED` -- 사용한코드 기본키
+		PRIMARY KEY (
+			`USED` -- 사용한코드 일련번호
+		);
+
+ALTER TABLE `USED`
+	MODIFY COLUMN `USED` INTEGER NOT NULL AUTO_INCREMENT COMMENT '사용한코드 일련번호';
+
+-- 오프라인 정보 제공
+CREATE TABLE `OF_INFO` (
+	`OFINFO` INTEGER      NOT NULL COMMENT '오프라인 정보제공 일련번호', -- 오프라인 정보제공 일련번호
+	`ADDR`   VARCHAR(255) NULL     COMMENT '주소', -- 주소
+	`MAP`    VARCHAR(255) NULL     COMMENT '지도', -- 지도
+	`POINFO` INTEGER      NOT NULL COMMENT '게시물 기본정보 일련번호' -- 게시물 기본정보 일련번호
+)
+COMMENT '오프라인 정보 제공';
+
+-- 오프라인 정보 제공
+ALTER TABLE `OF_INFO`
+	ADD CONSTRAINT `PK_OF_INFO` -- 오프라인 정보 제공 기본키
+		PRIMARY KEY (
+			`OFINFO` -- 오프라인 정보제공 일련번호
+		);
+
+ALTER TABLE `OF_INFO`
+	MODIFY COLUMN `OFINFO` INTEGER NOT NULL AUTO_INCREMENT COMMENT '오프라인 정보제공 일련번호';
+
+-- 일반회원
+CREATE TABLE `N_MEMB` (
+	`NONO` INTEGER      NOT NULL COMMENT '일반회원 일련번호', -- 일반회원 일련번호
+	`PIC`  VARCHAR(255) NULL     COMMENT '사진' -- 사진
+)
+COMMENT '일반회원';
+
+-- 일반회원
+ALTER TABLE `N_MEMB`
+	ADD CONSTRAINT `PK_N_MEMB` -- 일반회원 기본키
+		PRIMARY KEY (
+			`NONO` -- 일반회원 일련번호
+		);
+
+-- 코드
+CREATE TABLE `CODE` (
+	`CONO`    INTEGER     NOT NULL COMMENT '코드 일련번호', -- 코드 일련번호
+	`CODE`    VARCHAR(30) NOT NULL COMMENT '코드', -- 코드
+	`PR_NAME` VARCHAR(50) NOT NULL COMMENT '프로모션명', -- 프로모션명
+	`POINFO`  INTEGER     NOT NULL COMMENT '게시물 기본정보 일련번호' -- 게시물 기본정보 일련번호
+)
+COMMENT '코드';
+
+-- 코드
+ALTER TABLE `CODE`
+	ADD CONSTRAINT `PK_CODE` -- 코드 기본키
+		PRIMARY KEY (
+			`CONO` -- 코드 일련번호
+		);
+
+-- 코드 유니크 인덱스
+CREATE UNIQUE INDEX `UIX_CODE`
+	ON `CODE` ( -- 코드
+		`CODE` ASC -- 코드
+	);
+
+ALTER TABLE `CODE`
+	MODIFY COLUMN `CONO` INTEGER NOT NULL AUTO_INCREMENT COMMENT '코드 일련번호';
+
+-- 게시물 상태정보
+CREATE TABLE `POST_STAT` (
+	`STAT_NO` INTEGER NOT NULL COMMENT '게시물 상태정보 일련번호', -- 게시물 상태정보 일련번호
+	`LIKE`    INTEGER NULL     COMMENT '추천수', -- 추천수
+	`VIEW`    INTEGER NULL     COMMENT '조회수', -- 조회수
+	`STAT`    CHAR(1) NOT NULL COMMENT '상태', -- 상태
+	`POINFO`  INTEGER NOT NULL COMMENT '게시물 기본정보 일련번호' -- 게시물 기본정보 일련번호
+)
+COMMENT '게시물 상태정보';
+
+-- 게시물 상태정보
+ALTER TABLE `POST_STAT`
+	ADD CONSTRAINT `PK_POST_STAT` -- 게시물 상태정보 기본키
+		PRIMARY KEY (
+			`STAT_NO` -- 게시물 상태정보 일련번호
+		);
+
+ALTER TABLE `POST_STAT`
+	MODIFY COLUMN `STAT_NO` INTEGER NOT NULL AUTO_INCREMENT COMMENT '게시물 상태정보 일련번호';
+
+-- 대분류 카테고리
+CREATE TABLE `BIGCAT` (
+	`BIGNO`  INTEGER     NOT NULL COMMENT '대분류 카테고리 일련번호', -- 대분류 카테고리 일련번호
+	`BIGCAT` VARCHAR(50) NOT NULL COMMENT '대분류 카테고리명' -- 대분류 카테고리명
+)
+COMMENT '대분류 카테고리';
+
+-- 대분류 카테고리
+ALTER TABLE `BIGCAT`
+	ADD CONSTRAINT `PK_BIGCAT` -- 대분류 카테고리 기본키
+		PRIMARY KEY (
+			`BIGNO` -- 대분류 카테고리 일련번호
+		);
+
+ALTER TABLE `BIGCAT`
+	MODIFY COLUMN `BIGNO` INTEGER NOT NULL AUTO_INCREMENT COMMENT '대분류 카테고리 일련번호';
+
+-- 게시물 사진
+CREATE TABLE `POST_PIC` (
+	`PATHNO` INTEGER      NOT NULL COMMENT '게시물사진 일련번호', -- 게시물사진 일련번호
+	`PIC`    VARCHAR(255) NULL     COMMENT '사진', -- 사진
+	`POINFO` INTEGER      NOT NULL COMMENT '게시물 기본정보 일련번호' -- 게시물 기본정보 일련번호
+)
+COMMENT '게시물 사진';
+
+-- 게시물 사진
+ALTER TABLE `POST_PIC`
+	ADD CONSTRAINT `PK_POST_PIC` -- 게시물 사진 기본키
+		PRIMARY KEY (
+			`PATHNO` -- 게시물사진 일련번호
+		);
+
+ALTER TABLE `POST_PIC`
+	MODIFY COLUMN `PATHNO` INTEGER NOT NULL AUTO_INCREMENT COMMENT '게시물사진 일련번호';
+
+-- 기업
+CREATE TABLE `COMP` (
+	`COMNO`  INTEGER     NOT NULL COMMENT '기업일련번호', -- 기업일련번호
+	`CONAME` VARCHAR(50) NULL     COMMENT '기업명' -- 기업명
+)
+COMMENT '기업';
+
+-- 기업
+ALTER TABLE `COMP`
+	ADD CONSTRAINT `PK_COMP` -- 기업 기본키
+		PRIMARY KEY (
+			`COMNO` -- 기업일련번호
+		);
+
+ALTER TABLE `COMP`
+	MODIFY COLUMN `COMNO` INTEGER NOT NULL AUTO_INCREMENT COMMENT '기업일련번호';
+
+-- 사업자 회원
+ALTER TABLE `B_MEMB`
+	ADD CONSTRAINT `FK_MEMB_TO_B_MEMB` --  Member -> 사업자 회원
+		FOREIGN KEY (
+			`CEONO` -- 사업자 일련번호
+		)
+		REFERENCES `MEMB` ( --  Member
+			`MNO` -- 회원 일련번호
+		);
+
+-- Admin
+ALTER TABLE `ADMIN`
+	ADD CONSTRAINT `FK_MEMB_TO_ADMIN` --  Member -> Admin
+		FOREIGN KEY (
+			`ADNO` -- 관리자 일련번호
+		)
+		REFERENCES `MEMB` ( --  Member
+			`MNO` -- 회원 일련번호
+		);
+
+-- 온라인코드
+ALTER TABLE `ON_CODE`
+	ADD CONSTRAINT `FK_CODE_TO_ON_CODE` -- 코드 -> 온라인코드
+		FOREIGN KEY (
+			`ON_NO` -- 온라인코드 일련번호
+		)
+		REFERENCES `CODE` ( -- 코드
+			`CONO` -- 코드 일련번호
+		);
+
+-- 중분류 카테고리
+ALTER TABLE `MIDCAT`
+	ADD CONSTRAINT `FK_BIGCAT_TO_MIDCAT` -- 대분류 카테고리 -> 중분류 카테고리
+		FOREIGN KEY (
+			`BIGNO` -- 대분류 카테고리 일련번호
+		)
+		REFERENCES `BIGCAT` ( -- 대분류 카테고리
+			`BIGNO` -- 대분류 카테고리 일련번호
+		);
+
+-- 오프라인 코드
+ALTER TABLE `OF_CODE`
+	ADD CONSTRAINT `FK_CODE_TO_OF_CODE` -- 코드 -> 오프라인 코드
+		FOREIGN KEY (
+			`OF_NO` -- 오프라인 코드 일련번호
+		)
+		REFERENCES `CODE` ( -- 코드
+			`CONO` -- 코드 일련번호
+		);
+
+-- 온라인 정보 제공
+ALTER TABLE `ON_INFO`
+	ADD CONSTRAINT `FK_POST_TO_ON_INFO` -- 게시물 기본정보 -> 온라인 정보 제공
+		FOREIGN KEY (
+			`PONO` -- 게시물 기본정보 일련번호
+		)
+		REFERENCES `POST` ( -- 게시물 기본정보
+			`POINFO` -- 게시물 기본정보 일련번호
+		);
+
+-- 코드 등록(온라인)
+ALTER TABLE `N_CODE`
+	ADD CONSTRAINT `FK_N_MEMB_TO_N_CODE` -- 일반회원 -> 코드 등록(온라인)
+		FOREIGN KEY (
+			`NONO` -- 일반회원 일련번호
+		)
+		REFERENCES `N_MEMB` ( -- 일반회원
+			`NONO` -- 일반회원 일련번호
+		);
+
+-- 코드 등록(온라인)
+ALTER TABLE `N_CODE`
+	ADD CONSTRAINT `FK_POST_TO_N_CODE` -- 게시물 기본정보 -> 코드 등록(온라인)
+		FOREIGN KEY (
+			`POINFO` -- 게시물 기본정보 일련번호
+		)
+		REFERENCES `POST` ( -- 게시물 기본정보
+			`POINFO` -- 게시물 기본정보 일련번호
+		);
+
+-- 코드등록(사업자)
+ALTER TABLE `B_CODE`
+	ADD CONSTRAINT `FK_B_MEMB_TO_B_CODE` -- 사업자 회원 -> 코드등록(사업자)
+		FOREIGN KEY (
+			`CEONO` -- 사업자 일련번호
+		)
+		REFERENCES `B_MEMB` ( -- 사업자 회원
+			`CEONO` -- 사업자 일련번호
+		);
+
+-- 코드등록(사업자)
+ALTER TABLE `B_CODE`
+	ADD CONSTRAINT `FK_CODE_TO_B_CODE` -- 코드 -> 코드등록(사업자)
+		FOREIGN KEY (
+			`CONO` -- 코드 일련번호
+		)
+		REFERENCES `CODE` ( -- 코드
+			`CONO` -- 코드 일련번호
+		);
+
+-- 게시물 기본정보
+ALTER TABLE `POST`
+	ADD CONSTRAINT `FK_MIDCAT_TO_POST` -- 중분류 카테고리 -> 게시물 기본정보
+		FOREIGN KEY (
+			`SMNO` -- 중분류 카테고리 일련번호
+		)
+		REFERENCES `MIDCAT` ( -- 중분류 카테고리
+			`SMNO` -- 중분류 카테고리 일련번호
+		);
+
+-- 게시물 기본정보
+ALTER TABLE `POST`
+	ADD CONSTRAINT `FK_COMP_TO_POST` -- 기업 -> 게시물 기본정보
+		FOREIGN KEY (
+			`COMNO` -- 기업일련번호
+		)
+		REFERENCES `COMP` ( -- 기업
+			`COMNO` -- 기업일련번호
+		);
+
+-- 찜
+ALTER TABLE `CART`
+	ADD CONSTRAINT `FK_MEMB_TO_CART` --  Member -> 찜
+		FOREIGN KEY (
+			`MNO` -- 회원 일련번호
+		)
+		REFERENCES `MEMB` ( --  Member
+			`MNO` -- 회원 일련번호
+		);
+
+-- 찜
+ALTER TABLE `CART`
+	ADD CONSTRAINT `FK_COMP_TO_CART` -- 기업 -> 찜
+		FOREIGN KEY (
+			`COMNO` -- 기업일련번호
+		)
+		REFERENCES `COMP` ( -- 기업
+			`COMNO` -- 기업일련번호
+		);
+
+-- 사용한코드
+ALTER TABLE `USED`
+	ADD CONSTRAINT `FK_MEMB_TO_USED` --  Member -> 사용한코드
+		FOREIGN KEY (
+			`MNO` -- 회원 일련번호
+		)
+		REFERENCES `MEMB` ( --  Member
+			`MNO` -- 회원 일련번호
+		);
+
+-- 사용한코드
+ALTER TABLE `USED`
+	ADD CONSTRAINT `FK_CODE_TO_USED` -- 코드 -> 사용한코드
+		FOREIGN KEY (
+			`CONO` -- 코드 일련번호
+		)
+		REFERENCES `CODE` ( -- 코드
+			`CONO` -- 코드 일련번호
+		);
+
+-- 오프라인 정보 제공
+ALTER TABLE `OF_INFO`
+	ADD CONSTRAINT `FK_POST_TO_OF_INFO` -- 게시물 기본정보 -> 오프라인 정보 제공
+		FOREIGN KEY (
+			`POINFO` -- 게시물 기본정보 일련번호
+		)
+		REFERENCES `POST` ( -- 게시물 기본정보
+			`POINFO` -- 게시물 기본정보 일련번호
+		);
+
+-- 일반회원
+ALTER TABLE `N_MEMB`
+	ADD CONSTRAINT `FK_MEMB_TO_N_MEMB` --  Member -> 일반회원
+		FOREIGN KEY (
+			`NONO` -- 일반회원 일련번호
+		)
+		REFERENCES `MEMB` ( --  Member
+			`MNO` -- 회원 일련번호
+		);
+
+-- 코드
+ALTER TABLE `CODE`
+	ADD CONSTRAINT `FK_POST_TO_CODE` -- 게시물 기본정보 -> 코드
+		FOREIGN KEY (
+			`POINFO` -- 게시물 기본정보 일련번호
+		)
+		REFERENCES `POST` ( -- 게시물 기본정보
+			`POINFO` -- 게시물 기본정보 일련번호
+		);
+
+-- 게시물 상태정보
+ALTER TABLE `POST_STAT`
+	ADD CONSTRAINT `FK_POST_TO_POST_STAT` -- 게시물 기본정보 -> 게시물 상태정보
+		FOREIGN KEY (
+			`POINFO` -- 게시물 기본정보 일련번호
+		)
+		REFERENCES `POST` ( -- 게시물 기본정보
+			`POINFO` -- 게시물 기본정보 일련번호
+		);
+
+-- 게시물 사진
+ALTER TABLE `POST_PIC`
+	ADD CONSTRAINT `FK_POST_TO_POST_PIC` -- 게시물 기본정보 -> 게시물 사진
+		FOREIGN KEY (
+			`POINFO` -- 게시물 기본정보 일련번호
+		)
+		REFERENCES `POST` ( -- 게시물 기본정보
+			`POINFO` -- 게시물 기본정보 일련번호
+		);
