@@ -59,6 +59,11 @@ CREATE UNIQUE INDEX `UIX_B_MEMB`
 		`BUSINO` ASC -- 사업자등록번호
 	);
 
+-- 사업자 회원 유니크 인덱스2
+CREATE UNIQUE INDEX `UIX_B_MEMB2`
+	ON `B_MEMB` ( -- 사업자 회원
+	);
+
 -- Admin
 CREATE TABLE `ADMIN` (
 	`ADNO` INTEGER NOT NULL COMMENT '관리자 일련번호' -- 관리자 일련번호
@@ -87,7 +92,7 @@ ALTER TABLE `ON_CODE`
 
 -- 중분류 카테고리
 CREATE TABLE `MIDCAT` (
-	`SMNO`   INTEGER     NOT NULL COMMENT '중분류 카테고리 일련번호', -- 중분류 카테고리 일련번호
+	`MIDNO`  INTEGER     NOT NULL COMMENT '중분류 카테고리 일련번호', -- 중분류 카테고리 일련번호
 	`BIGNO`  INTEGER     NOT NULL COMMENT '대분류 카테고리 일련번호', -- 대분류 카테고리 일련번호
 	`MIDCAT` VARCHAR(50) NOT NULL COMMENT '중분류 카테고리명' -- 중분류 카테고리명
 )
@@ -97,11 +102,11 @@ COMMENT '중분류 카테고리';
 ALTER TABLE `MIDCAT`
 	ADD CONSTRAINT `PK_MIDCAT` -- 중분류 카테고리 기본키
 		PRIMARY KEY (
-			`SMNO` -- 중분류 카테고리 일련번호
+			`MIDNO` -- 중분류 카테고리 일련번호
 		);
 
 ALTER TABLE `MIDCAT`
-	MODIFY COLUMN `SMNO` INTEGER NOT NULL AUTO_INCREMENT COMMENT '중분류 카테고리 일련번호';
+	MODIFY COLUMN `MIDNO` INTEGER NOT NULL AUTO_INCREMENT COMMENT '중분류 카테고리 일련번호';
 
 -- 오프라인 코드
 CREATE TABLE `OF_CODE` (
@@ -185,7 +190,7 @@ CREATE TABLE `POST` (
 	`LOGO`    VARCHAR(255) NULL     COMMENT '로고', -- 로고
 	`LINK`    VARCHAR(255) NULL     COMMENT '링크 패스', -- 링크 패스
 	`PO_DATE` DATETIME     NULL     COMMENT '등록일', -- 등록일
-	`SMNO`    INTEGER      NOT NULL COMMENT '중분류 카테고리 일련번호', -- 중분류 카테고리 일련번호
+	`MIDNO`   INTEGER      NOT NULL COMMENT '중분류 카테고리 일련번호', -- 중분류 카테고리 일련번호
 	`COMNO`   INTEGER      NOT NULL COMMENT '기업일련번호' -- 기업일련번호
 )
 COMMENT '게시물 기본정보';
@@ -471,10 +476,10 @@ ALTER TABLE `B_CODE`
 ALTER TABLE `POST`
 	ADD CONSTRAINT `FK_MIDCAT_TO_POST` -- 중분류 카테고리 -> 게시물 기본정보
 		FOREIGN KEY (
-			`SMNO` -- 중분류 카테고리 일련번호
+			`MIDNO` -- 중분류 카테고리 일련번호
 		)
 		REFERENCES `MIDCAT` ( -- 중분류 카테고리
-			`SMNO` -- 중분류 카테고리 일련번호
+			`MIDNO` -- 중분류 카테고리 일련번호
 		);
 
 -- 게시물 기본정보
