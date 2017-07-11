@@ -29,11 +29,12 @@
 <part id="1"/>
 <part id="0"/>
 <part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="PROJECT01YISANGHAE.exerd" partName="PROJECT01YISANGHAE.exerd" title="PROJECT01YISANGHAE.exerd" tooltip="C:\Users\BitCamp\git\project01\newProject2\PROJECT01YISANGHAE.exerd" workbook="DefaultEditorWorkbook">
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="PROJECT01YISANGHAE.exerd" partName="PROJECT01YISANGHAE.exerd" title="PROJECT01YISANGHAE.exerd" tooltip="C:\Users\BitCamp\git\project01\newProject2\PROJECT01YISANGHAE.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/Users/BitCamp/git/project01/newProject2/PROJECT01YISANGHAE.exerd"/>
 </editor>
 <editor id="com.tomato.exerd.editor.DiagramEditor" name="test09.exerd" partName="test09.exerd" title="test09.exerd" tooltip="C:\Users\BitCamp\git\java93\java93\db01-bit\model02\test09.exerd" workbook="DefaultEditorWorkbook">
@@ -41,6 +42,9 @@
 </editor>
 <editor id="com.tomato.exerd.editor.DiagramEditor" name="TEST93.exerd" partName="TEST93.exerd" path="C:/Users/BitCamp/git/project01/newProject/TEST93.exerd" title="TEST93.exerd" tooltip="newProject/TEST93.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/newProject/TEST93.exerd"/>
+</editor>
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="travel.exerd" partName="travel.exerd" path="C:/Users/BitCamp/git/project01/newProject/travel.exerd" title="travel.exerd" tooltip="newProject/travel.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/newProject/travel.exerd"/>
 </editor>
 </editors>
 <views>
@@ -183,6 +187,8 @@
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BitCamp/git/java93/java93/db01-bit/model02/test09.exerd"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BitCamp/git/java93/java93/db01-bit/model02/test09.exerd"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/TEST93.exerd"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" uri="file:/C:/Users/BitCamp/git/java93/java93/db01-bit/model02/test09.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/newProject/travel.exerd"/>
 </editors>
 <item historyLabel="PROJECT01YISANGHAE.exerd" index="0"/>
 <item historyLabel=".project" index="1">
@@ -207,7 +213,14 @@
 <item historyLabel="test09.exerd" index="6"/>
 <item historyLabel="TEST93.exerd" index="7"/>
 <item historyLabel="test09.exerd" index="6"/>
-<item active="true" historyLabel="PROJECT01YISANGHAE.exerd" index="2"/>
+<item historyLabel="PROJECT01YISANGHAE.exerd" index="2"/>
+<item historyLabel="test09.exerd" index="8"/>
+<item historyLabel="PROJECT01YISANGHAE.exerd" index="2"/>
+<item historyLabel="travel.exerd" index="9"/>
+<item historyLabel="PROJECT01YISANGHAE.exerd" index="2"/>
+<item historyLabel="travel.exerd" index="9"/>
+<item historyLabel="test09.exerd" index="8"/>
+<item active="true" historyLabel="travel.exerd" index="9"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -234,6 +247,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="travel.exerd" tooltip="newProject/travel.exerd">
+<persistable path="/newProject/travel.exerd"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="TEST93.exerd" tooltip="newProject/TEST93.exerd">
 <persistable path="/newProject/TEST93.exerd"/>
 </file>

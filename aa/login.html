@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <style>
+    *
+    {
+        box-sizing:         border-box;
+        /*-moz-box-sizing:    border-box;
+        -webkit-box-sizing: border-box;*/
+    }
+    #container{
+      width:100%
+    }
+
+#a{
+
+z-index: 1;
+  margin-top: 20px;
+  width:100%;
+  height:250px;
+}
+#member{
+margin-right: 10px;
+}
+#log{
+  margin-left: 70%;
+  margin-right:10px;
+}
+#top-menu{
+  margin-left: 5%;
+}
+#search{
+width: 400px;
+  z-index: 100;
+  margin-top: 0px;
+  margin-left: 40%;
+}
+#search > input{
+  width:300px;
+  display: inline-block;
+}
+#search> button{
+  background-color: white;
+}
+    </style>
+  </head>
+  <body>
+<div id="container">
+  <div id="header">
+  <a id="top-menu" href="#">자전거도로</a>  <a href="#">숙소</a>  <a href="#">맛집</a> <i class="fa fa-briefcase" id="log" aria-hidden="true"></i> <i class="fa fa-user-o" id="member" aria-hidden="true"></i> <button>회원가입</button>
+  <div id="search"><input type="text"></input> <button>검색</button></div>
+<img src="./22.jpg" id="a">
+</div>
+<div>
+
+    <div class="user-card round5">
+    	<div class="login-box">
+        <div id="close"><i class="fa fa-times" id="close_btn" aria-hidden="true"></i></div>
+
+        <div type="text" id="titl_login">Login</div>
+        <form class="login-form" name="login" action="">
+    			<input type="email" name="username" class="username" placeholder="이메일" />
+    			<input type="password" name="password" class="password" placeholder="암호" />
+    			<input type="submit" name="login" value="로그인" class="login" />
+
+    		<div class="or"></div>
+
+<a href="#" class="login-with-fb"><span class="icon fa fa-facebook"></span>페이스북</a>
+<a href="#" class="login-with-kt"><span class="fa fa-commenting-o" aria-hidden="true"></span>카카오톡</a>
+      </form>
+    	</div>
+
+    	<!-- Card Footer -->
+
+    	<div class="footer">
+    		<span>아직 회원이 아니시라면? </span><a class="toggle-link" href="#">Sign Up</a>
+    	</div>
+    </div>
+  </div>
+
+  </body>
+</html>

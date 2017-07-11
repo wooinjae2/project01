@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <style>
+    div.imgTopic {position:relative; margin-left: 300px; width:300px; height:200px; }
+     div.imgTopic a {text-decoration: none}
+     h1.title {position:absolute;z-index:1;left:5px;bottom:30px}
+     h1.title a{font-size:18px;color:#fff;}
+     h1.title a:hover
+     h1.title a:focus {text-decoration:underline;}
+     p.content a {font-size:11px;
+       color:#ccc;
+     }
+     p.content img{
+       width:355px;
+     height:267px;
+     }
+     span.date {position:absolute;display:block;left:0;bottom:0;width:295px;height:25px;padding:35px 0 0 5px;}
+
+
+    *
+    {
+        box-sizing:         border-box;
+        /*-moz-box-sizing:    border-box;
+        -webkit-box-sizing: border-box;*/
+    }
+    #container{
+      width:100%
+    }
+
+#a{
+
+
+  margin-top: 20px;
+  width:100%;
+  height:250px;
+}
+#member{
+margin-right: 10px;
+}
+#log{
+  margin-left: 70%;
+  margin-right:10px;
+}
+#top-menu{
+  margin-left: 5%;
+}
+#search{
+width: 100%;
+  margin-top: 0px;
+
+}
+#search > img{
+  width: 100%;
+  z-index: 1;
+  margin-top: 0px;
+  margin-top:
+}
+#search > input{
+  width:300px;
+  display: inline-block;
+  margin-left: 40%;
+  z-index: 10;
+  position: absolute;
+  margin-top: 60px;
+}
+#search> button{
+  background-color: white;
+  position: absolute;
+  margin-left: 59%;
+  margin-top: 60px;
+}
+div{
+  border: 1px solid black;
+}
+    </style>
+  </head>
+  <body>
+<div id="container">
+  <div id="header">
+  <a id="top-menu" href="#">자전거도로</a>  <a href="#">숙소</a>  <a href="#">맛집</a> <i class="fa fa-briefcase" id="log" aria-hidden="true"></i> <i class="fa fa-user-o" id="member" aria-hidden="true"></i> <button>회원가입</button>
+    <div id="search"><input type="text"></input> <button>검색</button>
+      <img src="./22.jpg" id="a">
+    </div>
+</div>
+<div class="imgTopic">
+  <h1 class="title"><a href="#">(이란) 북에서 남쪽까지 2개월간의 여정</a></h1>
+  <p class="content"><a href="#"><img src="./22.jpg" alt="" /><span class="date">2013년02월27일 오후3:00</span></a></p>
+</div>
+
+
+    <div class="user-card round5">
+    	<div class="login-box">
+        <div id="close"><i class="fa fa-times" id="close_btn" aria-hidden="true"></i></div>
+
+        <div type="text" id="titl_login">Login</div>
+        <form class="login-form" name="login" action="">
+    			<input type="email" name="username" class="username" placeholder="이메일" />
+    			<input type="password" name="password" class="password" placeholder="암호" />
+    			<input type="submit" name="login" value="로그인" class="login" />
+
+    		<div class="or"></div>
+
+<a href="#" class="login-with-fb"><span class="icon fa fa-facebook"></span>페이스북</a>
+<a href="#" class="login-with-kt"><span class="fa fa-commenting-o" aria-hidden="true"></span>카카오톡</a>
+      </form>
+    	</div>
+
+    	<!-- Card Footer -->
+
+    	<div class="footer">
+    		<span>아직 회원이 아니시라면? </span><a class="toggle-link" href="#">Sign Up</a>
+    	</div>
+    </div>
+  </div>
+
+  </body>
+</html>
