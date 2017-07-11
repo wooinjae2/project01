@@ -1,0 +1,74 @@
+@import url(https://fonts.googleapis.com/css?family=Ropa+Sans);
+
+*, *:before, *:after {
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+div {
+width: 100%;
+height: 100%;
+font-family: 'Ropa Sans', sans-serif;
+}
+
+
+a {
+color: rgb(50, 50, 50);
+text-decoration: none;
+transition: all .25s ease-in-out;
+}
+
+a:hover {
+color: rgb(100, 100, 100);
+border-bottom: 4px solid rgb(100, 100, 100);
+}
+
+.black {
+background-image: url(https://subtlepatterns.com/patterns/gray_sand.png); background-position: initial initial; background-repeat: initial initial;
+background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+}
+
+.white {
+background-image: url(https://subtlepatterns.com/patterns/white_carbon.png); background-position: initial initial; background-repeat: initial initial;
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+}
+
+.blank-one {
+background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAJUlEQVQIHWP8//8/AwwwMjL+Z0LmACUZwQIgGRAHJAki4ByQAAAg9BADCJJs7QAAAABJRU5ErkJggg==) repeat,
+url(https://1.bp.blogspot.com/_7xI3tGf5dMY/TUXjiEOE09I/AAAAAAAAAAs/2VgUkofo-ws/s1600/foggy+forest+3.jpg) right bottom no-repeat fixed;
+text-align: center;
+}
+
+.blank-two {
+background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIHWNkYGD4DwSMQBoMGIEcGBtMM8F4jIyMYBkMFQDP0wr/yEGXyAAAAABJRU5ErkJggg==) repeat,
+url(http://www.chrishoneysett.com/data/photos/174_1trees_in_fog_16bit.jpg) center center no-repeat fixed;
+text-align: center;
+}
+
+.blank-three {
+background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAS0lEQVQYGY2P0QoAIAgDW///z+aCwZSEejHWdUxExPIDIKOAZ7xvDwRxel5AQQxp7PA1OiRTh9nl2UkfJGFzZeMk/AXSULYelflwAPHTKwUaIRJKAAAAAElFTkSuQmCC) repeat,
+url(http://farm8.staticflickr.com/7191/6802641014_66dc3ddaa1_o.jpg) center center no-repeat fixed;
+text-align: center;
+}
+
+.text {
+width: 700px;
+margin: auto;
+line-height: 30px;
+}
+
+h2 {
+font-size: 80px;
+text-transform: uppercase;
+color: rgb(255, 255, 255);
+text-shadow: 1px 1px 2px #000;
+line-height: 100vh;
+}
+
+p {
+font-size: 24px;
+padding: 60px;
+}
