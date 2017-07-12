@@ -33,13 +33,12 @@ i{
 #edit-start-button{
   border: 2px solid black;
   background-color: white;
-  border-radius: 20px;
+  border-radius: 5px;
   float: right;
   width: 120px;
   height: 40px;
   margin-top:40px;
   font-weight: bold;
-
 }
 
 #search-bar {
@@ -55,7 +54,6 @@ i{
   height: 60px;
   margin-bottom: 20px;
 }
-
 /*여기까지 header*/
 
 .content-container{
@@ -171,12 +169,54 @@ div.connect:after
   width:300px;
 
 }
+/**/
+$size: 30px;
 
-.fa fa-heart-o fa-2x{
-margin-top: 10px;
-margin-left: 100px;
+
+
+
+
+.heart {
+
+  width: $size * 2;
+  height: $size * 1.65;
+  cursor: pointer;
+
+  &:before {
+    position: absolute;
+    content: "";
+    left: $size;
+    top: 0;
+    width: $size;
+    height: $size * 1.65;
+    background: yellow;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+
+  &:after {
+    @extend .heart:before;
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin :100% 100%;
+  }
 }
 
+.beating {
+  animation:beating .5s 1 alternate;
+  &:before, &:after {
+    background: #FF3016;
+  }
+}
+
+@keyframes beating {
+  0% { transform: scale(1) }
+  40% { transform: scale(1.25) }
+  70% { transform: scale(.9) }
+  100% { transform: scale(1) }
+}
+/**/
 
 
 /*여기서부터 footer css*/
@@ -197,10 +237,8 @@ margin-left: 400px;
 .dis_picture{
 float:right;
 }
-.heart{
-  display: inline;
-  margin-left: 240px;
-}
+
+
 
 .travel_period{
   font-style: italic;
@@ -208,17 +246,6 @@ float:right;
   font-weight: bold;
   font-size: 15px;
 
-}
-
-#list_heart > img{
-  width: 30px;
-  height:30px;
-}
-
-
-
-#list_heart_1{
-  color: #fc5549;
 }
 </style>
 
@@ -234,8 +261,8 @@ float:right;
     <i class="fa fa-search fa-2x" aria-hidden="true"></i>
     <button type="button" id="edit-start-button">start
     </div>
-    <hr>
   </div>
+  <hr>
 
   <!--여기까지 header -->
 
@@ -285,11 +312,7 @@ float:right;
 
 
 </div>
-<div class="heart">
-
-<a id="list_heart" href="#"><i id="list_heart_1" class="fa fa-heart-o fa-2x" aria-hidden="true"></i></a>
-
-<div>
+<div class="heart"></div>
 
 </div>
   </div>
@@ -345,11 +368,7 @@ float:right;
 
 
 </div>
-<div class="heart">
-
-<a id="list_heart" href="#"><i id="list_heart_1" class="fa fa-heart-o fa-2x" aria-hidden="true"></i></a>
-
-<div>
+<div class="heart"></div>
 
 </div>
   </div>
@@ -401,9 +420,7 @@ float:right;
 
 
 </div>
-<div class="heart">
-<i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
-<div>
+<div class="heart"></div>
 
 </div>
   </div>
@@ -452,9 +469,7 @@ float:right;
 
 
 </div>
-<div class="heart">
-<i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>
-<div>
+<div class="heart"></div>
 
 </div>
   </div>
@@ -473,37 +488,18 @@ float:right;
   <!-- 여기까지 footer-->
 
 
-<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script>
-$(".heart > div").click(function () {
-       $(".pop").fadeOut(200);
-   });
+$('.heart').on('click', function() {
 
+  var $this = $(this);
 
-   $("#list_heart").on({
-     'click':function(){
+  $this.addClass('beating');
 
-      //  class="fa fa-heart fa-2x"
-      //  class="fa fa-heart-o fa-2x"
-       var color = ($('#list_heart>i').attr('class') === 'fa fa-heart-o fa-2x')
-              ? 'fa fa-heart fa-2x'
-              : 'fa fa-heart-o fa-2x';
-
-
-  $('#list_heart_1').attr('class',color);
-      }
-   })
-
-//
-//   $("#list_heart").on({
-//     'click': function() {
-//          var src = ($("#list_heart > img").attr('src') == 'white.png')
-//             ? 'white.png'
-//             : 'red.png';
-//          $("img" ).attr('src', src);
-//        }
-// });
-
+  //setTimeout(function() {
+  //  $this.removeClass('beating');
+  //}, 500);
+});
 </script>
 
   </body>

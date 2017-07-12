@@ -163,7 +163,15 @@ CREATE TABLE `B_CODE` (
 	`CONO`    INTEGER      NOT NULL COMMENT '코드 일련번호', -- 코드 일련번호
 	`CO_TYPE` CHAR(1)      NULL     COMMENT '코드유형', -- 코드유형
 	`CO_WAY`  CHAR(1)      NULL     COMMENT '코드생성방법', -- 코드생성방법
-	`OFF_PER` INTEGER      NULL     COMMENT '할인율', -- 할인율
+	`OFF_
+
+
+
+
+
+
+
+	` INTEGER      NULL     COMMENT '할인율', -- 할인율
 	`OFF_PRI` INTEGER      NULL     COMMENT '할인가격', -- 할인가격
 	`DUPL`    CHAR(1)      NULL     COMMENT '중복여부', -- 중복여부
 	`APPL`    CHAR(1)      NULL     COMMENT '적용대상', -- 적용대상
